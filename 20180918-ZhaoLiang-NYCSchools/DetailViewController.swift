@@ -27,44 +27,62 @@ class DetailViewController: UIViewController {
 
     func configureView() {
         // Update the user interface for the detail item.
-        view.addSubview(itemTitle)
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(scrollView)
+        scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        scrollView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        scrollView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        
+        let contentView = UIView()
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(contentView)
+        contentView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+        contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+        contentView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        contentView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        
+        contentView.addSubview(itemTitle)
         itemTitle.translatesAutoresizingMaskIntoConstraints = false
-        itemTitle.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
-        itemTitle.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
-        itemTitle.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30).isActive = true
-
-        view.addSubview(itemDesc)
+        itemTitle.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 30).isActive = true
+        itemTitle.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
+        itemTitle.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -30).isActive = true
+        
+        contentView.addSubview(itemDesc)
         itemDesc.translatesAutoresizingMaskIntoConstraints = false
-        itemDesc.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
-        itemDesc.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30).isActive = true
+        itemDesc.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
+        itemDesc.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -30).isActive = true
         itemDesc.topAnchor.constraint(equalTo: itemTitle.bottomAnchor, constant: 10).isActive = true
         
-        view.addSubview(satTitle)
+        contentView.addSubview(satTitle)
         satTitle.translatesAutoresizingMaskIntoConstraints = false
-        satTitle.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
-        satTitle.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30).isActive = true
+        satTitle.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
+        satTitle.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -30).isActive = true
         satTitle.topAnchor.constraint(equalTo: itemDesc.bottomAnchor, constant: 25).isActive = true
         
-        view.addSubview(numTester)
+        contentView.addSubview(numTester)
         numTester.translatesAutoresizingMaskIntoConstraints = false
-        numTester.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
-        numTester.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30).isActive = true
+        numTester.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
+        numTester.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -30).isActive = true
         numTester.topAnchor.constraint(equalTo: satTitle.bottomAnchor, constant: 0).isActive = true
         
-        view.addSubview(mathScore)
+        contentView.addSubview(mathScore)
         mathScore.translatesAutoresizingMaskIntoConstraints = false
-        mathScore.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
+        mathScore.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
         mathScore.topAnchor.constraint(equalTo: numTester.bottomAnchor, constant: 15).isActive = true
         
-        view.addSubview(readingScore)
+        contentView.addSubview(readingScore)
         readingScore.translatesAutoresizingMaskIntoConstraints = false
-        readingScore.leftAnchor.constraint(equalTo: mathScore.rightAnchor, constant: 30).isActive = true
+        readingScore.leftAnchor.constraint(equalTo: mathScore.rightAnchor, constant: 20).isActive = true
         readingScore.topAnchor.constraint(equalTo: numTester.bottomAnchor, constant: 15).isActive = true
         
-        view.addSubview(WrittingScore)
+        contentView.addSubview(WrittingScore)
         WrittingScore.translatesAutoresizingMaskIntoConstraints = false
-        WrittingScore.leftAnchor.constraint(equalTo: readingScore.rightAnchor, constant: 30).isActive = true
+        WrittingScore.leftAnchor.constraint(equalTo: readingScore.rightAnchor, constant: 20).isActive = true
         WrittingScore.topAnchor.constraint(equalTo: numTester.bottomAnchor, constant: 15).isActive = true
+        contentView.bottomAnchor.constraint(equalTo: WrittingScore.bottomAnchor, constant: 15).isActive = true
         
     }
 

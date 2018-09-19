@@ -13,10 +13,6 @@ class MasterViewController: UITableViewController{
     var schoolListUrl: String {
         return "https://data.cityofnewyork.us/resource/97mf-9njv.json"
     }
-
-    var satListUrl: String {
-        return "https://data.cityofnewyork.us/resource/734v-jeq5.json"
-    }
     
     var itemList: [SchoolItem]?
     var detailViewController: DetailViewController? = nil
